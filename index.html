@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4a101d">
+<title>Wedding Invitation | Mozammil, Neha & Family</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --maroon:#4a101d;
+  --deep:#280812;
+  --cream:#f7edda;
+  --gold:#c7a46a;
+  --soft:#ead9bc;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--maroon);
+  color:var(--cream);
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
+}
+
+button { font:inherit; }
+
+.cover {
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px 18px;
+  background:
+    radial-gradient(ellipse at center,#752839 0%,#4a101d 60%,#240711 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+.cover::before, .cover::after {
+  content:"";
+  position:absolute;
+  width:260px;height:260px;
+  border:1px solid #c7a46a55;
+  border-radius:50%;
+}
+.cover::before {top:-150px;left:-100px;}
+.cover::after {bottom:-150px;right:-100px;}
+
+.cover-card {
+  width:min(100%,570px);
+  min-height:690px;
+  background:var(--cream);
+  color:var(--maroon);
+  border:2px solid var(--gold);
+  outline:1px solid #d3b783;
+  outline-offset:7px;
+  text-align:center;
+  padding:50px 25px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 25px 80px #10030a99;
+  transition:transform 1s, opacity 1s;
+}
+
+.cover-card::before {
+  content:"✿  ❀  ✿";
+  color:var(--gold);
+  font-size:28px;
+  margin-bottom:30px;
+}
+
+.bismillah {
+  font-size:37px;
+  margin-bottom:22px;
+  font-family:serif;
+}
+
+.cover-small {
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.cover-title {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(50px,10vw,75px);
+  font-weight:400;
+  margin:20px 0;
+}
+
+.cover-names {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(40px,8vw,60px);
+  margin:18px 0;
+}
+
+.gold-line {
+  width:100px;
+  height:1px;
+  background:var(--gold);
+  margin:20px auto;
+}
+
+.open-btn {
+  border:1px solid var(--gold);
+  background:var(--maroon);
+  color:var(--cream);
+  padding:15px 30px;
+  cursor:pointer;
+  letter-spacing:2px;
+  font-size:12px;
+  margin-top:28px;
+  transition:.3s;
+}
+
+.open-btn:hover {
+  background:var(--gold);
+  color:var(--deep);
+  transform:translateY(-3px);
+}
+
+.ribbon {
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:35px;
+  height:100%;
+  background:linear-gradient(90deg,#9c283b,#6a1327,#a83a4b);
+  opacity:.85;
+  pointer-events:none;
+  transition:opacity 1s,transform 1s;
+}
+
+.ribbon::after {
+  content:"";
+  position:absolute;
+  top:47%;
+  left:-35px;
+  width:105px;
+  height:38px;
+  background:var(--gold);
+  clip-path:polygon(0 0,100% 0,85% 50%,100% 100%,0 100%,15% 50%);
+}
+
+.cover.open .ribbon {
+  opacity:0;
+  transform:translate(-50%,-100%);
+}
+
+.cover.open .cover-card {
+  transform:scale(.94) rotateX(12deg);
+  opacity:0;
+}
+
+#invitation {
+  display:none;
+  animation:appear 1.2s ease;
+}
+
+#invitation.visible {display:block;}
+
+@keyframes appear {
+  from {opacity:0;transform:translateY(35px);}
+  to {opacity:1;transform:translateY(0);}
+}
+
+nav {
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:22px;
+  padding:15px;
+  background:#2b0912ee;
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #c7a46a44;
+}
+
+nav a {
+  color:var(--cream);
+  text-decoration:none;
+  font-size:14px;
+  letter-spacing:1px;
+}
+
+section {
+  padding:85px 20px;
+  text-align:center;
+}
+
+.section-inner {
+  max-width:850px;
+  margin:auto;
+}
+
+.ornament {
+  color:var(--gold);
+  font-size:28px;
+  margin:15px 0;
+}
+
+.eyebrow {
+  text-transform:uppercase;
+  letter-spacing:4px;
+  color:var(--gold);
+  font-size:12px;
+}
+
+h2 {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(42px,8vw,65px);
+  font-weight:400;
+  margin:15px 0;
+}
+
+.intro {
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:17px;
+  line-height:1.9;
+  max-width:700px;
+  margin:20px auto;
+}
+
+.family {
+  background:var(--cream);
+  color:var(--maroon);
+}
+
+.family-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:40px;
+}
+
+.family-card {
+  border:1px solid var(--gold);
+  padding:35px 20px;
+  background:#fff9ec;
+  transition:transform .4s;
+}
+
+.family-card:hover {transform:translateY(-7px);}
+
+.person {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(35px,6vw,52px);
+  margin:18px 0;
+}
+
+.family-card p {
+  line-height:1.8;
+  font-size:18px;
+}
+
+.events {
+  background:linear-gradient(180deg,#4a101d,#2b0912);
+}
+
+.couple {
+  margin:55px auto;
+  padding:35px 20px;
+  max-width:760px;
+  border:1px solid #c7a46a88;
+  background:#ffffff08;
+  position:relative;
+}
+
+.couple::before {
+  content:"❀";
+  position:absolute;
+  top:-24px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--maroon);
+  padding:0 18px;
+  color:var(--gold);
+  font-size:32px;
+}
+
+.couple h3 {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(38px,7vw,55px);
+  font-weight:400;
+  color:var(--gold);
+  margin:15px 0 25px;
+}
+
+.event-list {
+  display:grid;
+  gap:12px;
+  text-align:left;
+  max-width:600px;
+  margin:25px auto 0;
+}
+
+.event {
+  border-bottom:1px solid #c7a46a55;
+  padding:14px 8px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+  align-items:center;
+  transition:padding .3s;
+}
+
+.event:hover {padding-left:17px;}
+
+.event strong {
+  font-size:20px;
+  font-weight:600;
+}
+
+.event span {
+  color:var(--soft);
+  text-align:right;
+  font-size:17px;
+}
+
+.venue {
+  background:var(--cream);
+  color:var(--maroon);
+}
+
+.venue-box {
+  max-width:600px;
+  margin:35px auto;
+  padding:40px 20px;
+  border:1px solid var(--gold);
+  outline:1px solid var(--gold);
+  outline-offset:7px;
+}
+
+.venue-box h3 {
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  margin:15px;
+}
+
+.venue-box p {
+  font-size:20px;
+  line-height:1.8;
+}
+
+.map-btn {
+  display:inline-block;
+  margin-top:22px;
+  padding:13px 25px;
+  background:var(--maroon);
+  color:var(--cream);
+  text-decoration:none;
+}
+
+.footer {
+  padding:65px 20px;
+  background:var(--deep);
+  text-align:center;
+}
+
+.footer h2 {color:var(--gold);}
+
+.footer p {
+  line-height:1.9;
+  font-size:17px;
+}
+
+.footer .thanks {
+  margin-top:35px;
+  color:var(--gold);
+  font-family:'Great Vibes',cursive;
+  font-size:38px;
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .9s,transform .9s;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:600px) {
+  .cover-card {min-height:610px;padding:35px 18px;}
+  .family-grid {grid-template-columns:1fr;}
+  nav {gap:13px;}
+  nav a {font-size:12px;}
+  section {padding:65px 17px;}
+  .event {grid-template-columns:1fr;}
+  .event span {text-align:left;}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important;
+  }
+  .reveal {opacity:1;transform:none;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING INVITATION -->
+
+<div class="cover" id="cover">
+  <div class="cover-card">
+    <div class="ribbon"></div>
+    <div class="bismillah">﷽</div>
+    <p class="cover-small">In the name of "Allah" the most beneficent & merciful</p>
+    <div class="gold-line"></div>
+    <p class="cover-small">A BEAUTIFUL CELEBRATION OF LOVE</p>
+    <h1 class="cover-title">Wedding Invitation</h1>
+    <div class="ornament">❀ ❧ ❀</div>
+    <div class="cover-names">Mozammil & Neha</div>
+    <div class="gold-line"></div>
+    <p class="cover-small">Milad- Qurankhani - 23th Nov- 2026</p>
+    <p class="cover-small">With the blessings of Allah</p>
+    <button class="open-btn" onclick="openInvitation()">
+      OPEN YOUR INVITATION ✦
+    </button>
+  </div>
+</div>
+
+<div id="invitation">
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#families">Families</a>
+  <a href="#events">Programmes</a>
+  <a href="#venue">Venue</a>
+</nav>
+
+<!-- WELCOME -->
+
+<section id="home">
+  <div class="section-inner reveal">
+    <div class="ornament">۞ ❀ ۞</div>
+    <p class="eyebrow">In Sha Allah</p>
+    <h2>With the blessings of Allah</h2>
+    <p class="intro">
+      Mrs. & Mr. Md. Anwar
+      <br><br>
+      Request Your Kind Presence on auspicious occasion of
+      Marriage ceremony of their loving Son & Daughter.
+    </p>
+    <div class="ornament">❧ ❀ ❧</div>
+    
+    <p class="eyebrow">A celebration of two families</p>
+  </div>
+</section>
+
+<!-- FAMILY DETAILS -->
+
+<section class="family" id="families">
+  <div class="section-inner reveal">
+    <p class="eyebrow">The Wedding Families</p>
+    <h2>With Love & Blessings</h2>
+    <div class="ornament">❀</div>
+
+    <div class="family-grid">
+
+      <div class="family-card">
+        <p>Groom</p>
+        <h3 class="person">Mozammil Ahmad</h3>
+        <p>(S/o.- Md. Anwar)</p>
+        <p>Manitola Masjid Lane,</p>
+        <p>Doranda, Ranchi,</p>
+        <p>(Jharkhand)</p>
+        <div class="ornament">♡ Weds ♡</div>
+        <p>Bride</p>
+        <h3 class="person">Neha Perween</h3>
+        <p>(D/o.-Late - Md. Bashir Ansari)</p>
+        <p>Manitola Kabristan Road,</p>
+        <p>Doranda, Ranchi, (Jharkhand)</p>
+      </div>
+
+      <div class="family-card">
+        <p>Bride</p>
+        <h3 class="person">Mosharba Qulsum</h3>
+        <p>(D/o.- Md. Anwar)</p>
+        <p>Manitola Masjid Lane,</p>
+        <p>Doranda, Ranchi,</p>
+        <p>(Jharkhand)</p>
+        <div class="ornament">♡ Weds ♡</div>
+        <p>Groom</p>
+        <h3 class="person">Md. Perwez</h3>
+        <p>(S/o:- Md. Siddique Ansari)</p>
+        <p>Vill. + Po. - Irba, Ormanjhi,</p>
+        <p>Ranchi, (Jharkhand)</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+
+<section class="events" id="events">
+  <div class="section-inner reveal">
+    <p class="eyebrow">The Wedding Celebrations</p>
+    <h2>Programme</h2>
+    <div class="ornament">❀ ❧ ❀</div>
+    <p class="intro">The celebrations and auspicious occasions</p>
+
+    <div class="couple">
+      
+      <div class="event-list">
+
+        <div class="event">
+          <strong>Milad- Qurankhani</strong>
+          <span>23th Nov- 2026 On Monday</span>
+        </div>
+
+        <div class="event">
+          <strong>Haldi</strong>
+          <span>23th Nov- 2026 On Monday at 03:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Departure of Barat</strong>
+          <span>25th Nov- 2026 On Wednesday at 09:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Nikah</strong>
+          <span>25th Nov- 2026 On Wednesday at 10:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Dawat- E-Walima</strong>
+          <span>28th Nov- 2026 On Saturday at 07:00 PM</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ornament">❧ ✦ ❧</div>
+
+    <div class="couple">
+      <h3>Mosharba & Perwez</h3>
+      <div class="event-list">
+
+        <div class="event">
+          <strong>Haldi</strong>
+          <span>26th Nov- 2026 On Thursday at 03:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Mehandi</strong>
+          <span>27th Nov- 2026 On Friday at 05:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Dinner</strong>
+          <span>28th Nov- 2026 On Saturday at 07:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Arrival of Barat</strong>
+          <span>28th Nov- 2026 On Saturday at 09:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Nikah</strong>
+          <span>28th Nov- 2026 On Saturday at 10:00 PM</span>
+        </div>
+
+        <div class="event">
+          <strong>Rukhsati</strong>
+          <span>29th Nov- 2026 On Sunday at 08:00 AM</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+
+<section class="venue" id="venue">
+  <div class="section-inner reveal">
+    <p class="eyebrow">We Await Your Presence</p>
+    <h2>Venue</h2>
+    <div class="ornament">❀</div>
+
+    <div class="venue-box">
+      <p>Venue</p>
+      <h3>Dawat Palace</h3>
+      <p>Manitola, Kabristan Road</p>
+      <p>Doranda, Ranchi</p>
+
+      <a class="map-btn"
+        href="https://www.google.com/maps/search/?api=1&query=Dawat+Palace+Manitola+Kabristan+Road+Doranda+Ranchi"
+        target="_blank" rel="noopener">
+        VIEW LOCATION ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP AND THANKS -->
+
+<footer class="footer">
+  <div class="section-inner reveal">
+    <p class="eyebrow">Your Presence Is Our Blessing</p>
+    <h2>R.S.V.P</h2>
+
+    <p>
+      Abdul Arshad, Tanweer Alam,<br>
+      Md. Modassir<br>
+      All Relatives & Friends.
+    </p>
+
+    <div class="gold-line"></div>
+
+    <p class="eyebrow">With Best Compliments From:</p>
+    <h2>Md. Anwar</h2>
+    <p>
+      S/o Late :- Haji Abdul Quaiyum
+    </p>
+
+    <div class="ornament">۞ ❀ ۞</div>
+
+    <p class="thanks">With Best Wishes</p>
+    <p>May Allah bless this beautiful occasion.</p>
+    <div class="ornament">✦</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+function openInvitation() {
+  const cover = document.getElementById('cover');
+  const invitation = document.getElementById('invitation');
+
+  cover.classList.add('open');
+
+  setTimeout(() => {
+    cover.style.display = 'none';
+    invitation.classList.add('visible');
+    document.body.style.overflowX = 'hidden';
+
+    window.scrollTo({top:0,behavior:'smooth'});
+    observeSections();
+  }, 1000);
+}
+
+function observeSections() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+}
+</script>
+
+</body>
+</html>
